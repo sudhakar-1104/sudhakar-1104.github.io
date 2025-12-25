@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K S Sudhakar | About</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --accent-primary: #00d9ff;
+            --accent-secondary: #ffd700;
+            --border-color: #333;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background: #0a0a0a;
+            color: var(--text-primary);
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+        }
+
+        /* --- NAVBAR (Same as Index) --- */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav-container {
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-logo::before {
+            content: ''; display: block; width: 8px; height: 8px;
+            background: var(--accent-primary); box-shadow: 0 0 10px var(--accent-primary);
+        }
+
+        .nav-links { display: flex; gap: 40px; list-style: none; }
+
+        .nav-item a {
+            position: relative;
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 5px 0;
+        }
+
+        .nav-item a::before, .nav-item a::after {
+            position: absolute; opacity: 0; transition: all 0.3s ease;
+            color: var(--accent-primary); font-weight: 700;
+        }
+
+        .nav-item a::before { content: '['; left: -15px; }
+        .nav-item a::after { content: ']'; right: -15px; }
+
+        .nav-item a:hover, .nav-item a.active { color: #fff; }
+
+        .nav-item a:hover::before, .nav-item a.active::before {
+            opacity: 1; left: -12px; text-shadow: 0 0 8px var(--accent-primary);
+        }
+
+        .nav-item a:hover::after, .nav-item a.active::after {
+            opacity: 1; right: -12px; text-shadow: 0 0 8px var(--accent-primary);
+        }
+
+        .resume-btn {
+            border: 1px solid var(--border-color);
+            padding: 8px 16px !important;
+            border-radius: 4px;
+        }
+        .resume-btn::before, .resume-btn::after { display: none !important; }
+
+        /* --- PAGE CONTENT --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 120px 40px 60px;
+        }
+
+        .header-section {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .page-title span { color: var(--accent-primary); }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+
+        /* GRID LAYOUT */
+        .about-section {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 50px;
+            margin-bottom: 80px;
+        }
+
+        .section-label {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--accent-primary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            border-left: 3px solid var(--accent-primary);
+            padding-left: 10px;
+        }
+
+        .bio-text {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+        .bio-text p { margin-bottom: 20px; }
+        .highlight { color: #fff; font-weight: 600; border-bottom: 1px solid var(--accent-primary); }
+
+        /* SKILLS CARD - Squared Off */
+        .card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            border-radius: 4px; /* Sharp corners */
+        }
+        
+        .skill-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .skill-icon { color: var(--accent-primary); margin-top: 3px; }
+        .skill-text strong { color: #fff; display: block; margin-bottom: 4px; }
+        .skill-text { font-size: 0.9rem; color: #999; }
+
+        /* EXPERIENCE */
+        .experience-item {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-left: 3px solid var(--accent-primary);
+            padding: 30px;
+            border-radius: 4px;
+            margin-bottom: 25px;
+        }
+        
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        
+        .exp-title { font-size: 1.2rem; font-weight: 600; color: #fff; }
+        .exp-company { color: var(--accent-primary); font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; }
+        .exp-date { color: #666; font-size: 0.9rem; font-family: 'JetBrains Mono', monospace; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-container { padding: 0 1.5rem; }
+            .nav-logo { font-size: 1rem; }
+            .nav-links { gap: 15px; }
+            .nav-item a { font-size: 0.8rem; }
+            .nav-item a::before, .nav-item a::after { display: none; }
+            .nav-item a.active { color: var(--accent-primary); border-bottom: 1px solid var(--accent-primary); }
+            
+            .about-section { grid-template-columns: 1fr; }
+            .page-title { font-size: 2.2rem; }
+            .exp-header { flex-direction: column; gap: 5px; }
+        }
+    </style>
+</head>
+<body>
+
+   <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Sudhakar_KS</a>
+            <ul class="nav-links">
+                <li class="nav-item"><a href="index.html" class="active">Home</a></li>
+                <li class="nav-item"><a href="about.html">About</a></li>
+                <li class="nav-item"><a href="projects.html">Projects</a></li>
+                <li class="nav-item">
+                    <a href="Sudhakar_Resume.pdf" target="_blank" class="resume-btn">
+                        CV <i class="fas fa-external-link-alt" style="font-size: 0.7rem; margin-left: 5px;"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        
+        <div class="header-section">
+            <h1 class="page-title">About <span>Me</span></h1>
+            <p class="subtitle">Computer Science Engineer | AI Enthusiast | Problem Solver</p>
+        </div>
+
+        <div class="about-section">
+            <div>
+                <div class="section-label"> WHO_I_AM </div>
+                <div class="bio-text">
+                    <p>I'm <span class="highlight">K S Sudhakar</span>, a Computer Science engineer with a deep passion for artificial intelligence and building scalable systems. I thrive at the intersection of theoretical ML concepts and practical software engineering.</p>
+                    <p>During my internship at <span class="highlight">Antz AI</span>, I specialized in architecting LLM-powered RAG pipelines, optimizing vector database operations with Qdrant, and ensuring high-accuracy semantic search implementations.</p>
+                    <p>My technical journey spans across machine learning, backend development, and cloud technologies. I've worked on diverse projects—from computer vision solutions for aviation safety to secure DBMS architectures.</p>
+                </div>
+
+                <div style="height: 40px;"></div>
+
+                <div class="section-label">/ EXPERIENCE</div>
+                
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-title">AI/ML Intern</div>
+                            <div class="exp-company">Antz AI</div>
+                        </div>
+                        <div class="exp-date">May 2025 - July 2025</div>
+                    </div>
+                    <p style="color: #999; font-size: 0.95rem; line-height: 1.6;">
+                        • Engineered and optimized LLM-powered RAG pipelines.<br>
+                        • Integrated Qdrant vector database for high-performance retrieval.<br>
+                        • Achieved 95%+ accuracy in context relevance.
+                    </p>
+                </div>
+
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-title">CV Project Lead</div>
+                            <div class="exp-company">Amrita Vishwa Vidyapeetham</div>
+                        </div>
+                        <div class="exp-date">Sep 2023 - Dec 2024</div>
+                    </div>
+                    <p style="color: #999; font-size: 0.95rem; line-height: 1.6;">
+                        • Developed cloud pattern analysis system for aviation safety.<br>
+                        • Built full-stack application with Python backend.<br>
+                        • Deployed on GCP with automated CI/CD pipeline.
+                    </p>
+                </div>
+            </div>
+
+            <div>
+                <div class="card">
+                    <div class="section-label" style="border:none; padding:0; margin-bottom: 20px;">/ TECHNICAL_STACK</div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-icon"><i class="fas fa-code"></i></div>
+                        <div class="skill-text">
+                            <strong>Languages</strong>
+                            Python, Java, C++, SQL, JavaScript
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-icon"><i class="fas fa-brain"></i></div>
+                        <div class="skill-text">
+                            <strong>AI / ML</strong>
+                            RAG, LLMs, NLP, Qdrant, TensorFlow
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-icon"><i class="fas fa-database"></i></div>
+                        <div class="skill-text">
+                            <strong>Databases</strong>
+                            PostgreSQL, MongoDB, Redis
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-icon"><i class="fas fa-cloud"></i></div>
+                        <div class="skill-text">
+                            <strong>DevOps</strong>
+                            GCP, AWS, Docker, Kubernetes
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 30px;">
+                        <div class="section-label" style="border:none; padding:0; margin-bottom: 20px;">/ EDUCATION</div>
+                        <div class="skill-item" style="border: none;">
+                            <div class="skill-icon"><i class="fas fa-graduation-cap"></i></div>
+                            <div class="skill-text">
+                                <strong>B.Tech Computer Science</strong>
+                                Amrita Vishwa Vidyapeetham<br>
+                                <span style="color: var(--accent-primary); font-size: 0.8rem;">4th Year Student</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
