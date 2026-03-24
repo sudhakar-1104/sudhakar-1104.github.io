@@ -222,19 +222,75 @@
             .page-title { font-size: 2.2rem; }
             .exp-header { flex-direction: column; gap: 5px; }
         }
+
+        /* --- CERTIFICATE PLAQUE STYLE --- */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .cert-card {
+            background: linear-gradient(145deg, #0f0f0f, #1a1a1a);
+            border: 1px solid var(--border-color);
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            position: relative;
+            transition: 0.3s ease;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 20px rgba(0, 217, 255, 0.2);
+        }
+
+        .cert-icon {
+            font-size: 2rem;
+            color: var(--accent-primary);
+            margin-bottom: 15px;
+        }
+
+        .cert-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .cert-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+
+        .cert-link {
+            display: inline-block;
+            padding: 8px 14px;
+            border: 1px solid var(--accent-primary);
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+
+        .cert-link:hover {
+            background: var(--accent-primary);
+            color: #000;
+        }
     </style>
 </head>
 <body>
-
-   <nav class="navbar">
+    <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="nav-logo">Sudhakar_KS</a>
             <ul class="nav-links">
                 <li class="nav-item"><a href="index.html">Home</a></li>
-                <li class="nav-item"><a href="about.html" class="active">About</a></li>
+                <li class="nav-item"><a href="about.html">About</a></li>
                 <li class="nav-item"><a href="projects.html">Projects</a></li>
-                <li class="nav-item"><a href="Tech_exper.html">tech-Expertise</a></li>
-                <li class="nav-item"><a href="Certific.html" ">Certifications</a></li>
+                <li class="nav-item"><a href="Tech_exper.html">Tech-Expertise</a></li>
+                <li class="nav-item"><a href="Certific.html" class="active">Certifications</a></li>
                 <li class="nav-item">
                     <a href="Sudhakar_Resume.pdf" target="_blank" class="resume-btn">
                         CV <i class="fas fa-external-link-alt" style="font-size: 0.7rem; margin-left: 5px;"></i>
@@ -245,57 +301,112 @@
     </nav>
 
     <div class="container">
-        
         <div class="header-section">
-            <h1 class="page-title">About <span>Me</span></h1>
-            <p class="subtitle">Computer Science Engineer | AI Enthusiast | Problem Solver</p>
+            <h1 class="page-title">CERTIFICATES & <span>ACHIEVEMENTS</span></h1>
+            <p class="subtitle">Professional Certifications | Notable Achievements</p>
         </div>
 
-        <div class="about-section">
-            <div class="section-label"> PROFESSIONAL_PROFILE </div>
-            <div class="bio-text">
-                <p>
-                    I am <span class="highlight">K S Sudhakar</span>, a final-year Computer Science and Engineering student at Amrita Vishwa Vidyapeetham. My career is driven by a genuine interest in solving complex problems through elegant code and robust architectures. I specialize in the intersection of <span class="highlight">Artificial Intelligence and Backend Engineering</span>, focusing on building systems that are not only intelligent but also scalable and secure.
-                </p>
+       <div class="section-label">CERTIFICATIONS</div>
+        
+        <div class="cert-grid">
 
-                <p>
-                    My professional foundation was strengthened during my time at <span class="highlight">Antz AI</span>, where I engineered LLM-powered Retrieval-Augmented Generation (RAG) pipelines. By integrating vector databases like Qdrant, I optimized AI workflows for high-accuracy semantic search and context-driven processing. This experience taught me how to transform theoretical AI concepts into practical, production-ready solutions.
-                </p>
-
-                <p>
-                    What sets me apart is my versatility across the stack—from developing <span class="highlight">Digital Image Processing</span> systems for aviation safety to architecting secure DBMS solutions. I am comfortable navigating the complexities of Python, Java, and C++, and I am constantly eager to apply these skills within collaborative teams to build meaningful software that makes a real-world impact.
-                </p>
-            </div>
+    <!-- AWS -->
+    <div class="cert-card">
+        <div class="cert-icon"><i class="fab fa-aws"></i></div>
+        <div class="cert-title">Cloud Foundations: AWS</div>
+        <div class="cert-desc">
+            Core AWS cloud concepts including compute, storage, and networking.
         </div>
-
-        <div style="height: 50px;"></div> <div class="section-label"> EDUCATION </div>
-    
-        <div class="experience-item" style="width: 100%;">
-            <div class="exp-header">
-                <div>
-                    <div class="exp-title">Amrita Vishwa Vidyapeetham</div>
-                    <div class="exp-company">B.Tech in Computer Science and Engineering</div>
-                </div>
-                <div class="exp-date">2022 — 2026</div>
-            </div>
-            <p style="color: var(--text-secondary); font-size: 0.95rem;">
-                Current CGPA: <span class="highlight">6.84</span> 
-            </p>
-        </div>
-
-        <div class="experience-item" style="width: 100%;">
-            <div class="exp-header">
-                <div>
-                    <div class="exp-title">SBOA Matriculation Higher Secondary School</div>
-                    <div class="exp-company">Higher Secondary Certificate (HSC)</div>
-                </div>
-                <div class="exp-date">Completed 2022</div>
-            </div>
-            <p style="color: var(--text-secondary); font-size: 0.95rem;">
-                Percentage: <span class="highlight">88%</span> 
-            </p>
-        </div>
+        <a href="YOUR_AWS_LINK_HERE" target="_blank" class="cert-link">
+            View Certificate
+        </a>
     </div>
+
+    <!-- GCP -->
+    <div class="cert-card">
+        <div class="cert-icon"><i class="fab fa-google"></i></div>
+        <div class="cert-title">Cloud Foundations: GCP</div>
+        <div class="cert-desc">
+            Google Cloud fundamentals with ML and infrastructure services.
+        </div>
+        <a href="YOUR_GCP_LINK_HERE" target="_blank" class="cert-link">
+            View Certificate
+        </a>
+    </div>
+
+    <!-- Ethical Hacking -->
+    <div class="cert-card">
+        <div class="cert-icon"><i class="fas fa-shield-alt"></i></div>
+        <div class="cert-title">Ethical Hacking</div>
+        <div class="cert-desc">
+            Cybersecurity basics including vulnerability and threat analysis.
+        </div>
+        <a href="YOUR_CISCO_LINK_HERE" target="_blank" class="cert-link">
+            View Certificate
+        </a>
+    </div>
+
+    <!-- Networks -->
+    <div class="cert-card">
+        <div class="cert-icon"><i class="fas fa-network-wired"></i></div>
+        <div class="cert-title">Network & Security</div>
+        <div class="cert-desc">
+            Computer networks and internet security concepts.
+        </div>
+        <a href="Infosys-ComputerNetworks.pdf" target="_blank" class="cert-link">
+            View Certificate
+        </a>
+    </div>
+
+    <!-- Cloud -->
+    <div class="cert-card">
+        <div class="cert-icon"><i class="fas fa-cloud"></i></div>
+        <div class="cert-title">Cloud Computing</div>
+        <div class="cert-desc">
+            Cloud architecture, deployment models, and services.
+        </div>
+        <a href="Infosys-CloudComputing.pdf" target="_blank" class="cert-link">
+            View Certificate
+        </a>
+    </div>
+
+    <!-- AI -->
+    <div class="cert-card">
+        <div class="cert-icon"><i class="fas fa-robot"></i></div>
+        <div class="cert-title">Generative AI</div>
+        <div class="cert-desc">
+            LLMs and modern AI applications in software systems.
+        </div>
+        <a href="Infosys-AI.pdf" target="_blank" class="cert-link">
+            View Certificate
+        </a>
+    </div>
+
+    <!-- GCP ML Badge -->
+    <div class="cert-card">
+        <div class="cert-icon"><i class="fab fa-google"></i></div>
+        <div class="cert-title">Prepare Data for ML APIs (GCP)</div>
+        <div class="cert-desc">
+            Google Cloud Skill Badge focused on preparing and processing data for ML APIs.
+        </div>
+        <a href="YOUR_BADGE_LINK_1" target="_blank" class="cert-link">
+            Show Credential
+        </a>
+    </div>
+
+    <!-- GCP Load Balancing -->
+    <div class="cert-card">
+        <div class="cert-icon"><i class="fab fa-google"></i></div>
+        <div class="cert-title">Load Balancing on Compute Engine</div>
+        <div class="cert-desc">
+            Google Cloud Skill Badge covering load balancing and traffic distribution.
+        </div>
+        <a href="YOUR_BADGE_LINK_2" target="_blank" class="cert-link">
+            Show Credential
+        </a>
+    </div>
+
+</div>
 
 </body>
 </html>
