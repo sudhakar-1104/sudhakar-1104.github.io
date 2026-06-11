@@ -5,296 +5,258 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>K S Sudhakar | About</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --bg-primary: #0a0a0a;
-            --bg-secondary: #111;
-            --text-primary: #ffffff;
-            --text-secondary: #b0b0b0;
-            --accent-primary: #00d9ff;
-            --accent-secondary: #ffd700;
-            --border-color: #333;
+            --bg-0: #070709; --bg-1: #0e0e12; --bg-2: #14141a; --bg-3: #1c1c25;
+            --cyan: #00d9ff; --gold: #ffd700;
+            --text-1: #f0f0f0; --text-2: #9898a8; --text-3: #5a5a70;
+            --border: rgba(255,255,255,0.07); --border-lit: rgba(0,217,255,0.25);
         }
-        
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior: smooth; }
         body {
-            background: #0a0a0a;
-            color: var(--text-primary);
-            font-family: 'Poppins', sans-serif;
-            min-height: 100vh;
+            background: var(--bg-0); color: var(--text-1);
+            font-family: 'Inter', sans-serif; min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* --- NAVBAR (Same as Index) --- */
+        /* ─── NAVBAR ─── */
         .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 70px;
-            background: rgba(10, 10, 10, 0.9);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            z-index: 1000;
-            display: flex;
-            justify-content: center;
+            position: fixed; top:0; left:0; width:100%; height:66px;
+            background: rgba(7,7,9,0.85); backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border); z-index:1000;
+            display:flex; justify-content:center; align-items:center;
         }
-
         .nav-container {
-            width: 100%;
-            max-width: 1200px;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            width:100%; max-width:1200px; padding:0 2.5rem;
+            display:flex; justify-content:space-between; align-items:center;
         }
-
         .nav-logo {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #fff;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            font-family:'JetBrains Mono',monospace; font-size:1rem; font-weight:600;
+            color:var(--text-1); text-decoration:none; letter-spacing:3px;
+            text-transform:uppercase; display:flex; align-items:center; gap:10px;
         }
-
-        .nav-logo::before {
-            content: ''; display: block; width: 8px; height: 8px;
-            background: var(--accent-primary); box-shadow: 0 0 10px var(--accent-primary);
+        .logo-dot {
+            width:7px; height:7px; background:var(--cyan); border-radius:50%;
+            box-shadow:0 0 10px var(--cyan),0 0 20px rgba(0,217,255,0.4);
+            animation:pulse 2.5s infinite;
         }
-
-        .nav-links { display: flex; gap: 40px; list-style: none; }
-
+        @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.8)} }
+        .nav-links { display:flex; gap:8px; list-style:none; align-items:center; }
         .nav-item a {
-            position: relative;
-            text-decoration: none;
-            color: var(--text-secondary);
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            padding: 5px 0;
+            text-decoration:none; color:var(--text-2);
+            font-family:'JetBrains Mono',monospace; font-size:0.78rem; font-weight:500;
+            letter-spacing:0.5px; padding:6px 12px; border-radius:4px;
+            transition:color 0.25s, background 0.25s;
         }
-
-        .nav-item a::before, .nav-item a::after {
-            position: absolute; opacity: 0; transition: all 0.3s ease;
-            color: var(--accent-primary); font-weight: 700;
-        }
-
-        .nav-item a::before { content: '['; left: -15px; }
-        .nav-item a::after { content: ']'; right: -15px; }
-
-        .nav-item a:hover, .nav-item a.active { color: #fff; }
-
-        .nav-item a:hover::before, .nav-item a.active::before {
-            opacity: 1; left: -12px; text-shadow: 0 0 8px var(--accent-primary);
-        }
-
-        .nav-item a:hover::after, .nav-item a.active::after {
-            opacity: 1; right: -12px; text-shadow: 0 0 8px var(--accent-primary);
-        }
-
+        .nav-item a:hover { color:var(--text-1); background:rgba(255,255,255,0.05); }
+        .nav-item a.active { color:var(--cyan); background:rgba(0,217,255,0.08); }
         .resume-btn {
-            border: 1px solid var(--border-color);
-            padding: 8px 16px !important;
-            border-radius: 4px;
+            border:1px solid var(--border-lit) !important;
+            color:var(--cyan) !important; background:rgba(0,217,255,0.05) !important;
         }
-        .resume-btn::before, .resume-btn::after { display: none !important; }
+        .resume-btn:hover { background:rgba(0,217,255,0.12) !important; }
 
-        /* --- PAGE CONTENT --- */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 120px 40px 60px;
+        /* ─── PAGE WRAPPER ─── */
+        .page-wrapper { max-width:900px; margin:0 auto; padding:110px 40px 80px; }
+
+        /* ─── PAGE HEADER ─── */
+        .page-header { margin-bottom:70px; animation:slideUp 0.7s ease-out both; }
+        .eyebrow {
+            font-family:'JetBrains Mono',monospace; font-size:0.72rem;
+            letter-spacing:3px; text-transform:uppercase; color:var(--cyan);
+            margin-bottom:16px; display:flex; align-items:center; gap:12px;
         }
-
-        .header-section {
-            text-align: center;
-            margin-bottom: 60px;
-            animation: fadeIn 0.8s ease-out;
-        }
-
+        .eyebrow::after { content:''; display:block; width:40px; height:1px; background:var(--cyan); opacity:0.4; }
         .page-title {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            font-family: 'JetBrains Mono', monospace;
+            font-family:'Space Grotesk',sans-serif; font-size:3.4rem; font-weight:700;
+            line-height:1.1; letter-spacing:-1px; color:var(--text-1);
         }
-        
-        .page-title span { color: var(--accent-primary); }
+        .page-title em { font-style:normal; color:transparent; -webkit-text-stroke:1.5px var(--cyan); }
+        .page-subtitle { margin-top:14px; color:var(--text-2); font-size:1rem; line-height:1.6; }
 
-        .subtitle {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            font-weight: 300;
+        /* ─── SECTION ─── */
+        .section { margin-bottom:60px; animation:slideUp 0.7s ease-out both; }
+        .section:nth-child(2){animation-delay:0.1s}
+        .section:nth-child(3){animation-delay:0.2s}
+        .section:nth-child(4){animation-delay:0.3s}
+
+        .section-header {
+            display:flex; align-items:center; gap:16px; margin-bottom:28px;
+        }
+        .section-tag {
+            font-family:'JetBrains Mono',monospace; font-size:0.68rem;
+            letter-spacing:2.5px; text-transform:uppercase; color:var(--text-3); white-space:nowrap;
+        }
+        .section-line { flex:1; height:1px; background:var(--border); }
+
+        /* ─── BIO CARD ─── */
+        .bio-card {
+            background:var(--bg-1); border:1px solid var(--border);
+            border-radius:8px; padding:36px 40px;
+            position:relative; overflow:hidden;
+            transition:border-color 0.3s;
+        }
+        .bio-card::after {
+            content:''; position:absolute; top:0; left:0; right:0; height:1px;
+            background:linear-gradient(90deg,var(--cyan),transparent); opacity:0;
+            transition:opacity 0.3s;
+        }
+        .bio-card:hover { border-color:var(--border-lit); }
+        .bio-card:hover::after { opacity:1; }
+
+        .bio-text { color:var(--text-2); line-height:1.85; font-size:0.95rem; }
+        .bio-text p { margin-bottom:18px; }
+        .bio-text p:last-child { margin-bottom:0; }
+        .hl {
+            color:var(--text-1); font-weight:600;
+            border-bottom:1px solid rgba(0,217,255,0.4);
+            padding-bottom:1px;
         }
 
-        /* GRID LAYOUT */
-        .about-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* Centers the content horizontally */
-            text-align: justify; /* Professional text alignment */
-            margin: 0 auto 80px auto;
-            max-width: 800px; /* Limits width for better readability */
+        /* ─── EDUCATION TIMELINE ─── */
+        .edu-timeline { display:flex; flex-direction:column; gap:2px; }
+
+        .edu-item {
+            background:var(--bg-1); border:1px solid var(--border);
+            border-radius:8px; padding:28px 32px;
+            display:grid; grid-template-columns:1fr auto;
+            gap:8px 24px; align-items:start;
+            transition:border-color 0.3s, background 0.25s;
+            position:relative; overflow:hidden;
+        }
+        .edu-item::before {
+            content:''; position:absolute; left:0; top:0; bottom:0;
+            width:3px; background:var(--cyan); opacity:0;
+            transition:opacity 0.3s;
+        }
+        .edu-item:hover { border-color:var(--border-lit); background:var(--bg-2); }
+        .edu-item:hover::before { opacity:1; }
+
+        .edu-inst {
+            font-family:'Space Grotesk',sans-serif;
+            font-size:1.05rem; font-weight:700; color:var(--text-1);
+            margin-bottom:4px;
+        }
+        .edu-degree {
+            font-family:'JetBrains Mono',monospace;
+            font-size:0.78rem; color:var(--cyan);
+        }
+        .edu-year {
+            font-family:'JetBrains Mono',monospace; font-size:0.72rem;
+            color:var(--text-3); background:var(--bg-3);
+            border:1px solid var(--border); padding:4px 10px;
+            border-radius:3px; white-space:nowrap; align-self:flex-start;
+        }
+        .edu-score {
+            grid-column:1; font-size:0.85rem; color:var(--text-2);
+            margin-top:10px;
+        }
+        .edu-score strong { color:var(--gold); font-weight:600; }
+
+        @keyframes slideUp {
+            from{opacity:0;transform:translateY(24px)}
+            to{opacity:1;transform:translateY(0)}
         }
 
-        .section-label {
-            align-self: flex-start;
-            font-family: 'JetBrains Mono', monospace;
-            color: var(--accent-primary);
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-            border-left: 3px solid var(--accent-primary);
-            padding-left: 10px;
-        }
-
-        .bio-text {
-            color: var(--text-secondary);
-            line-height: 1.8;
-            font-size: 1.05rem;
-        }
-        .bio-text p { margin-bottom: 20px; }
-        .highlight { color: #fff; font-weight: 600; border-bottom: 1px solid var(--accent-primary); }
-
-        /* SKILLS CARD - Squared Off */
-        .card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            padding: 30px;
-            border-radius: 4px; /* Sharp corners */
-        }
-        
-        .skill-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-            margin-bottom: 15px;
-            padding: 10px;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-        
-        .skill-icon { color: var(--accent-primary); margin-top: 3px; }
-        .skill-text strong { color: #fff; display: block; margin-bottom: 4px; }
-        .skill-text { font-size: 0.9rem; color: #999; }
-
-        /* EXPERIENCE */
-        .experience-item {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-left: 3px solid var(--accent-primary);
-            padding: 30px;
-            border-radius: 4px;
-            margin-bottom: 25px;
-        }
-        
-        .exp-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 15px;
-        }
-        
-        .exp-title { font-size: 1.2rem; font-weight: 600; color: #fff; }
-        .exp-company { color: var(--accent-primary); font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; }
-        .exp-date { color: #666; font-size: 0.9rem; font-family: 'JetBrains Mono', monospace; }
-
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            .nav-container { padding: 0 1.5rem; }
-            .nav-logo { font-size: 1rem; }
-            .nav-links { gap: 15px; }
-            .nav-item a { font-size: 0.8rem; }
-            .nav-item a::before, .nav-item a::after { display: none; }
-            .nav-item a.active { color: var(--accent-primary); border-bottom: 1px solid var(--accent-primary); }
-            
-            .about-section { grid-template-columns: 1fr; }
-            .page-title { font-size: 2.2rem; }
-            .exp-header { flex-direction: column; gap: 5px; }
+        @media (max-width:768px) {
+            .page-wrapper { padding:96px 20px 60px; }
+            .page-title { font-size:2.4rem; }
+            .nav-links { gap:2px; }
+            .nav-item a { padding:5px 8px; font-size:0.72rem; }
+            .bio-card { padding:24px 22px; }
+            .edu-item { grid-template-columns:1fr; }
+            .edu-year { justify-self:start; }
         }
     </style>
 </head>
 <body>
 
-   <nav class="navbar">
+    <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="nav-logo">Sudhakar_KS</a>
+            <a href="index.html" class="nav-logo">
+                <span class="logo-dot"></span>Sudhakar_KS
+            </a>
             <ul class="nav-links">
                 <li class="nav-item"><a href="index.html">Home</a></li>
                 <li class="nav-item"><a href="about.html" class="active">About</a></li>
                 <li class="nav-item"><a href="projects.html">Projects</a></li>
                 <li class="nav-item"><a href="Tech_exper.html">Tech-Expertise</a></li>
-                <li class="nav-item"><a href="Certific.html" ">Certifications</a></li>
+                <li class="nav-item"><a href="Certific.html">Certifications</a></li>
                 <li class="nav-item">
                     <a href="Sudhakar_Resume.pdf" target="_blank" class="resume-btn">
-                        CV <i class="fas fa-external-link-alt" style="font-size: 0.7rem; margin-left: 5px;"></i>
+                        CV &nbsp;<i class="fas fa-external-link-alt" style="font-size:0.6rem;"></i>
                     </a>
                 </li>
             </ul>
         </div>
     </nav>
 
-    <div class="container">
-        
-        <div class="header-section">
-            <h1 class="page-title">About <span>Me</span></h1>
-            <p class="subtitle">Computer Science Engineer | AI Enthusiast | Problem Solver</p>
-        </div>
+    <div class="page-wrapper">
 
-        <div class="about-section">
-            <div class="section-label"> PROFESSIONAL_PROFILE </div>
-            <div class="bio-text">
-                <p>
-                    I am <span class="highlight">K S Sudhakar</span>, a final-year Computer Science and Engineering student at Amrita Vishwa Vidyapeetham. My career is driven by a genuine interest in solving complex problems through elegant code and robust architectures. I specialize in the intersection of <span class="highlight">Artificial Intelligence and Backend Engineering</span>, focusing on building systems that are not only intelligent but also scalable and secure.
-                </p>
+        <header class="page-header">
+            <div class="eyebrow">Portfolio</div>
+            <h1 class="page-title">About<br><em>Me</em></h1>
+            <p class="page-subtitle">Computer Science Engineer &nbsp;·&nbsp; AI Enthusiast &nbsp;·&nbsp; Problem Solver</p>
+        </header>
 
-                <p>
-                    My professional foundation was strengthened during my time at <span class="highlight">Antz AI</span>, where I engineered LLM-powered Retrieval-Augmented Generation (RAG) pipelines. By integrating vector databases like Qdrant, I optimized AI workflows for high-accuracy semantic search and context-driven processing. This experience taught me how to transform theoretical AI concepts into practical, production-ready solutions.
-                </p>
-
-                <p>
-                    What sets me apart is my versatility across the stack—from developing <span class="highlight">Digital Image Processing</span> systems for aviation safety to architecting secure DBMS solutions. I am comfortable navigating the complexities of Python, Java, and C++, and I am constantly eager to apply these skills within collaborative teams to build meaningful software that makes a real-world impact.
-                </p>
+        <!-- Profile -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-tag">Professional Profile</span>
+                <span class="section-line"></span>
             </div>
-        </div>
-
-        <div style="height: 50px;"></div> <div class="section-label"> EDUCATION </div>
-    
-        <div class="experience-item" style="width: 100%;">
-            <div class="exp-header">
-                <div>
-                    <div class="exp-title">Amrita Vishwa Vidyapeetham</div>
-                    <div class="exp-company">B.Tech in Computer Science and Engineering</div>
+            <div class="bio-card">
+                <div class="bio-text">
+                    <p>
+                        <b>I</b> am a Computer Science and Engineering graduate from <span class="hl"> Amrita Vishwa Vidyapeetham</span> with a passion for building intelligent, scalable, and impactful software solutions. I enjoy solving complex problems through technology and creating applications that combine innovation, performance, and real-world usability.
+                        
+                    </p>
+                    <p>
+                        My interest lies in Artificial Intelligence, Backend Development, Cloud Computing, and Software Engineering. During my internship at <span class="hl">Antz AI</span>, I worked on developing Retrieval-Augmented Generation (RAG) pipelines, integrating vector databases, and optimizing AI-powered workflows for semantic search and context-aware applications. This experience gave me valuable exposure to Large Language Models, information retrieval systems, and the process of building production-ready AI solutions.
+                    </p>
+                    <p>
+                        My project experience spans multiple domains, including <span class="hl">Artificial Intelligence, Data Analytics, Computer vision, Database management, IoT, and web development</span>. Working across these areas has strengthened my ability to design efficient, scalable, and user-focused solutions while quickly adapting to new technologies and challenges. With a strong foundation in <span class="h1">Python, Java, C++,</span> and <span class="h1">SQL</span>, I enjoy learning, collaborating, and applying technology to solve complex problems and create impactful software.
+                    </p>
+                    <p>
+                        I am eager to contribute my skills, creativity, and passion for technology to a dynamic team where I can continue to grow as an engineer and make a meaningful impact through innovative software solutions.    
+                    </p>
                 </div>
-                <div class="exp-date">2022 — 2026</div>
             </div>
-            <p style="color: var(--text-secondary); font-size: 0.95rem;">
-                Current CGPA: <span class="highlight">7.00</span> 
-            </p>
         </div>
 
-        <div class="experience-item" style="width: 100%;">
-            <div class="exp-header">
-                <div>
-                    <div class="exp-title">SBOA Matriculation Higher Secondary School</div>
-                    <div class="exp-company">Higher Secondary Certificate (HSC)</div>
-                </div>
-                <div class="exp-date">Completed 2022</div>
+        <!-- Education -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-tag">Education</span>
+                <span class="section-line"></span>
             </div>
-            <p style="color: var(--text-secondary); font-size: 0.95rem;">
-                Percentage: <span class="highlight">88%</span> 
-            </p>
+            <div class="edu-timeline">
+
+                <div class="edu-item">
+                    <div>
+                        <div class="edu-inst">Amrita Vishwa Vidyapeetham</div>
+                        <div class="edu-degree">B.Tech — Computer Science and Engineering</div>
+                        <div class="edu-score">CGPA &nbsp;<strong>7.00</strong></div>
+                    </div>
+                    <div class="edu-year">2022 — 2026</div>
+                </div>
+
+                <div class="edu-item">
+                    <div>
+                        <div class="edu-inst">SBOA Matriculation Higher Secondary School</div>
+                        <div class="edu-degree">Higher Secondary Certificate (HSC)</div>
+                        <div class="edu-score">Percentage &nbsp;<strong>88%</strong></div>
+                    </div>
+                    <div class="edu-year">Completed 2022</div>
+                </div>
+
+            </div>
         </div>
+
     </div>
 
 </body>
