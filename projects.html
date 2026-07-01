@@ -73,21 +73,21 @@
 
         /* ─── PROJECT GRID ─── */
         .projects-grid {
-            display:grid;
-            grid-template-columns:repeat(auto-fill, minmax(330px,1fr));
-            gap:2px;
-            background:var(--border);
-            border:1px solid var(--border);
-            border-radius:10px;
-            overflow:hidden;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+            /* Increased gap from 2px to 24px for balanced spacing */
+            gap: 24px; 
         }
 
         .project-card {
-            background:var(--bg-1);
-            display:flex; flex-direction:column;
-            position:relative; overflow:hidden;
-            transition:background 0.25s;
-            cursor:default;
+            background: var(--bg-1);
+            display: flex; flex-direction: column;
+            position: relative; overflow: hidden;
+            transition: background 0.25s, transform 0.25s;
+            cursor: default;
+            /* Moved the borders and radius to the individual cards */
+            border: 1px solid var(--border);
+            border-radius: 10px;
         }
         .project-card:hover { background:var(--bg-2); }
 
@@ -483,6 +483,56 @@
                             <span class="tech-tag">OOP</span>
                             <span class="tech-tag">Encapsulation</span>
                             <span class="tech-tag">Polymorphism</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="project-card">
+                    <div class="project-photo">
+                            <img src="./proj_7.jpeg"
+                                alt="Aviation Cloud Analysis"
+                                style="width:100%; height:800px; object-fit:cover;">
+                    </div>
+
+                    <div class="project-body">
+                        <div class="project-card-head">
+                            <div class="project-icon-wrap">
+                                <i class="fas fa-shield-halved"></i>
+                            </div>
+
+                            <div class="project-meta">
+                                <span class="project-period">Sep 2023 – Dec 2023</span>
+
+                                <a href="https://github.com/sudhakar-1104/OpenBSD" target="_blank" class="project-link-icon">
+                                    <i class="fas fa-arrow-up-right-from-square"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="project-title">
+                            OpenBSD Concepts Interactive Dashboard
+                        </div>
+
+                        <p class="project-desc">
+                            Interactive educational dashboard that visualizes OpenBSD operating system concepts through simulations, system command demonstrations, process scheduling, memory management, and synchronization techniques using Streamlit.
+                        </p>
+
+                        <ul class="features">
+                            <li>Developed a multi-page Streamlit dashboard explaining core OpenBSD architecture and security concepts.</li>
+                            <li>Implemented interactive simulations for CPU scheduling, memory allocation, process synchronization, and system calls.</li>
+                            <li>Integrated visual demonstrations of OpenBSD security features, filesystem operations, and administrative commands.</li>
+                            <li>Designed responsive UI with navigation, diagrams, animations, and educational visualizations for improved learning experience.</li>
+                            <li>Structured the application into modular pages with reusable components for scalability and maintainability.</li>
+                        </ul>
+
+                        <div class="tech-stack">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Streamlit</span>
+                            <span class="tech-tag">OpenBSD</span>
+                            <span class="tech-tag">Operating Systems</span>
+                            <span class="tech-tag">Interactive Simulation</span>
+                            <span class="tech-tag">Data Visualization</span>
                         </div>
                     </div>
                 </div>
